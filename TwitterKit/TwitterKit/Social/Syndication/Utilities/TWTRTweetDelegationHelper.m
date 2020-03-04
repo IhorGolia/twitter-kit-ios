@@ -37,7 +37,9 @@
 
 + (void)performDefaultActionForTappingURL:(NSURL *)URL
 {
-    [[UIApplication sharedApplication] openURL:URL];
+    [[UIApplication sharedApplication] openURL:URL options:@{} completionHandler:^(BOOL success) {
+        
+    }];
 }
 
 + (void)performDefaultActionForTappingHashtag:(TWTRTweetHashtagEntity *)hashtag
@@ -81,16 +83,22 @@
             completionHandler:^(BOOL success) {
                 if (success == NO) {
                     // Open on web
-                    [[UIApplication sharedApplication] openURL:webURL];
+                    [[UIApplication sharedApplication] openURL:webURL options:@{} completionHandler:^(BOOL success_) {
+                        
+                    }];
                 }
             }];
     } else {
         if ([[UIApplication sharedApplication] canOpenURL:deepLinkURL]) {
             // Deep-link
-            [[UIApplication sharedApplication] openURL:deepLinkURL];
+            [[UIApplication sharedApplication] openURL:deepLinkURL options:@{} completionHandler:^(BOOL success) {
+                
+            }];
         } else {
             // Open on web
-            [[UIApplication sharedApplication] openURL:webURL];
+            [[UIApplication sharedApplication] openURL:webURL options:@{} completionHandler:^(BOOL success) {
+                
+            }];
         }
     }
 }

@@ -81,7 +81,7 @@
     if ([appDelegate respondsToSelector:@selector(window)] && appDelegate.window != nil) {
         return appDelegate.window;
     } else {
-        return [UIApplication sharedApplication].keyWindow;
+        return nil;//[UIApplication sharedApplication].keyWindow;
     }
 }
 

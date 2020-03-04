@@ -14,7 +14,8 @@
  * limitations under the License.
  *
  */
-
+#ifndef TWTRAPICLIENT_H
+#define TWTRAPICLIENT_H
 #import <UIKit/UIKit.h>
 
 @class TWTRUser;
@@ -254,3 +255,4 @@ typedef void (^TWTRRequestEmailCompletion)(NSString *_Nullable email, NSError *_
 @end
 
 NS_ASSUME_NONNULL_END
+#endif

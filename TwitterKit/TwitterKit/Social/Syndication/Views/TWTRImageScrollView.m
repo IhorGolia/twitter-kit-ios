@@ -64,7 +64,7 @@ static CGFloat const TWTRPadMaxZoom = 4.0;
     self.contentSize = image.size;
     self.imageView.frame = [self targetBoundsForImage:image];
 
-    BOOL isPad = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
+    BOOL isPad = YES;//(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
     self.maximumZoomScale = isPad ? TWTRPadMaxZoom : TWTRPhoneMaxZoom;
 
     CGFloat initialScale = [self initialZoomScale];

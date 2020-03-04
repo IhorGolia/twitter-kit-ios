@@ -357,6 +357,9 @@
 		3DFAD0301B33991E0076E10A /* TWTRListTimelineDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DFAD0031B333D980076E10A /* TWTRListTimelineDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DFAD0391B339EAB0076E10A /* TWTRListTimelineDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DFAD0381B339EAB0076E10A /* TWTRListTimelineDataSourceTests.m */; };
 		3DFAD03E1B33AB6E0076E10A /* TwitterSyndicationTeamListTweets.json in Resources */ = {isa = PBXBuildFile; fileRef = 3DFAD03D1B33AB6E0076E10A /* TwitterSyndicationTeamListTweets.json */; };
+		44514CBA23ED7114002794D2 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44514CB723ED6FC0002794D2 /* TwitterCore.framework */; };
+		44514CBF23ED72E1002794D2 /* libTwitterCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44514CB323ED6FC0002794D2 /* libTwitterCore.a */; };
+		4460DFF123916599000EC4D1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4460DFF023916599000EC4D1 /* WebKit.framework */; };
 		6C45B2DA1B013FAA00CD0FF2 /* TWTRTwitterAPIServiceConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C45B2D81B013FAA00CD0FF2 /* TWTRTwitterAPIServiceConfig.h */; };
 		6C45B2DB1B013FAA00CD0FF2 /* TWTRTwitterAPIServiceConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C45B2D81B013FAA00CD0FF2 /* TWTRTwitterAPIServiceConfig.h */; };
 		6C45B2DC1B013FAA00CD0FF2 /* TWTRTwitterAPIServiceConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C45B2D91B013FAA00CD0FF2 /* TWTRTwitterAPIServiceConfig.m */; };
@@ -555,7 +558,6 @@
 		DB22426C1C3F22AB008A6DC7 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9489E1A1930B95000E5C4F7 /* Social.framework */; };
 		DB22426D1C3F22B3008A6DC7 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370F2F1819B6980E00A51872 /* CoreText.framework */; };
 		DB22426E1C3F22BC008A6DC7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 370F2F1D19B698D400A51872 /* QuartzCore.framework */; };
-		DB22427F1C3F24A2008A6DC7 /* libTwitterCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D40087F1B1D033C0091E4D3 /* libTwitterCore.a */; };
 		DB2242801C3F24AF008A6DC7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9489E181930B93500E5C4F7 /* Security.framework */; };
 		DB2590821BA8B0F7008A9380 /* TwitterSocialTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C7FCB5A1AE59D5A008F41C9 /* TwitterSocialTests.m */; };
 		DB28A4D71CD419B60067FF72 /* VineTweetV13.json in Resources */ = {isa = PBXBuildFile; fileRef = DB28A4D11CD419B10067FF72 /* VineTweetV13.json */; };
@@ -678,6 +680,48 @@
 			remoteGlobalIDString = A97654E418E0B29B00E25169;
 			remoteInfo = "TwitterKit-static";
 		};
+		44514CB223ED6FC0002794D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44514CAC23ED6FC0002794D2 /* TwitterCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D5A92211AAA89730039EFCC;
+			remoteInfo = "TwitterCore-static";
+		};
+		44514CB423ED6FC0002794D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44514CAC23ED6FC0002794D2 /* TwitterCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D5A922C1AAA89730039EFCC;
+			remoteInfo = TwitterCoreTests;
+		};
+		44514CB623ED6FC0002794D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44514CAC23ED6FC0002794D2 /* TwitterCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9D5A92461AAA8D600039EFCC;
+			remoteInfo = TwitterCore;
+		};
+		44514CB823ED70EB002794D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44514CAC23ED6FC0002794D2 /* TwitterCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D5A92201AAA89730039EFCC;
+			remoteInfo = "TwitterCore-static";
+		};
+		44514CBB23ED712B002794D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44514CAC23ED6FC0002794D2 /* TwitterCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D5A92201AAA89730039EFCC;
+			remoteInfo = "TwitterCore-static";
+		};
+		44514CBD23ED715B002794D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 44514CAC23ED6FC0002794D2 /* TwitterCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D5A92451AAA8D600039EFCC;
+			remoteInfo = TwitterCore;
+		};
 		9D40087E1B1D033C0091E4D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9D4008771B1D033C0091E4D3 /* TwitterCore.xcodeproj */;
@@ -698,13 +742,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 9D5A92461AAA8D600039EFCC;
 			remoteInfo = "TwitterCore-dynamic";
-		};
-		9D40088B1B1D059D0091E4D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9D4008771B1D033C0091E4D3 /* TwitterCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9D5A92201AAA89730039EFCC;
-			remoteInfo = "TwitterCore-static";
 		};
 		BFE8397E1ADF23700035CBA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1075,6 +1112,8 @@
 		3DFAD00B1B337FCE0076E10A /* TWTRTimelineDataSource_Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTRTimelineDataSource_Constants.m; sourceTree = "<group>"; };
 		3DFAD0381B339EAB0076E10A /* TWTRListTimelineDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTRListTimelineDataSourceTests.m; sourceTree = "<group>"; };
 		3DFAD03D1B33AB6E0076E10A /* TwitterSyndicationTeamListTweets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TwitterSyndicationTeamListTweets.json; sourceTree = "<group>"; };
+		44514CAC23ED6FC0002794D2 /* TwitterCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TwitterCore.xcodeproj; path = ../TwitterCore/TwitterCore.xcodeproj; sourceTree = "<group>"; };
+		4460DFF023916599000EC4D1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		6C45B2D81B013FAA00CD0FF2 /* TWTRTwitterAPIServiceConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWTRTwitterAPIServiceConfig.h; sourceTree = "<group>"; };
 		6C45B2D91B013FAA00CD0FF2 /* TWTRTwitterAPIServiceConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTRTwitterAPIServiceConfig.m; sourceTree = "<group>"; };
 		6C58C4D21AE7102900D042C7 /* TWTROAuthSigning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWTROAuthSigning.h; sourceTree = "<group>"; };
@@ -1370,6 +1409,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44514CBF23ED72E1002794D2 /* libTwitterCore.a in Frameworks */,
+				44514CBA23ED7114002794D2 /* TwitterCore.framework in Frameworks */,
 				374680D71CE2593F00C393DA /* SafariServices.framework in Frameworks */,
 				9236048719F18F5F00532281 /* CoreData.framework in Frameworks */,
 				370F2F1C19B6989D00A51872 /* CoreGraphics.framework in Frameworks */,
@@ -1382,6 +1423,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4460DFF123916599000EC4D1 /* WebKit.framework in Frameworks */,
 				AA3E099220119CC000792255 /* MobileCoreServices.framework in Frameworks */,
 				AAF0C9F220119C2C0057F438 /* MapKit.framework in Frameworks */,
 				AAF0C9F120119C0A0057F438 /* CoreLocation.framework in Frameworks */,
@@ -1397,7 +1439,6 @@
 				DB2242671C3F218F008A6DC7 /* UIKit.framework in Frameworks */,
 				DB2242661C3F2188008A6DC7 /* CoreGraphics.framework in Frameworks */,
 				DB2242611C3F2181008A6DC7 /* CoreData.framework in Frameworks */,
-				DB22427F1C3F24A2008A6DC7 /* libTwitterCore.a in Frameworks */,
 				BFE839801ADF237A0035CBA1 /* libTwitterKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1408,6 +1449,7 @@
 		208ACAB41FB2800900008F42 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4460DFF023916599000EC4D1 /* WebKit.framework */,
 				AA3E099B20125EC600792255 /* MapKit.framework */,
 				AA3E099120119CA500792255 /* MobileCoreServices.framework */,
 				AAF0C9F020119BED0057F438 /* MapKit.framework */,
@@ -2065,6 +2107,16 @@
 			path = "SocialTests/Syndication/Test Helpers";
 			sourceTree = "<group>";
 		};
+		44514CAD23ED6FC0002794D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				44514CB323ED6FC0002794D2 /* libTwitterCore.a */,
+				44514CB523ED6FC0002794D2 /* TwitterCoreTests.xctest */,
+				44514CB723ED6FC0002794D2 /* TwitterCore.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		9D4008781B1D033C0091E4D3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -2078,6 +2130,7 @@
 		A97654DC18E0B29B00E25169 = {
 			isa = PBXGroup;
 			children = (
+				44514CAC23ED6FC0002794D2 /* TwitterCore.xcodeproj */,
 				DB2931A01B7D160C00C1ECD8 /* TwitterKit */,
 				DB2931B11B7D17C600C1ECD8 /* TwitterKitTests */,
 				DB2241711C3DA5F6008A6DC7 /* Supporting Files */,
@@ -2920,15 +2973,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A976550818E0B29B00E25169 /* Build configuration list for PBXNativeTarget "TwitterKit-static" */;
 			buildPhases = (
+				A976557118E0B87D00E25169 /* Headers */,
 				A97654E118E0B29B00E25169 /* Sources */,
 				A97654E218E0B29B00E25169 /* Frameworks */,
 				A97654E318E0B29B00E25169 /* Copy Files */,
-				A976557118E0B87D00E25169 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9D40088C1B1D059D0091E4D3 /* PBXTargetDependency */,
+				44514CBE23ED715B002794D2 /* PBXTargetDependency */,
+				44514CBC23ED712B002794D2 /* PBXTargetDependency */,
 			);
 			name = "TwitterKit-static";
 			productName = Social;
@@ -2947,6 +3001,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				44514CB923ED70EB002794D2 /* PBXTargetDependency */,
 				BFE8397F1ADF23700035CBA1 /* PBXTargetDependency */,
 			);
 			name = TwitterKit;
@@ -2970,6 +3025,7 @@
 					};
 					BFE8395F1ADF23590035CBA1 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = BRVHSCM57F;
 					};
 				};
 			};
@@ -2978,6 +3034,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				ko,
 				ja,
@@ -2986,6 +3043,10 @@
 			productRefGroup = A97654E618E0B29B00E25169 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 44514CAD23ED6FC0002794D2 /* Products */;
+					ProjectRef = 44514CAC23ED6FC0002794D2 /* TwitterCore.xcodeproj */;
+				},
 				{
 					ProductGroup = 9D4008781B1D033C0091E4D3 /* Products */;
 					ProjectRef = 9D4008771B1D033C0091E4D3 /* TwitterCore.xcodeproj */;
@@ -3001,6 +3062,27 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		44514CB323ED6FC0002794D2 /* libTwitterCore.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTwitterCore.a;
+			remoteRef = 44514CB223ED6FC0002794D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		44514CB523ED6FC0002794D2 /* TwitterCoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TwitterCoreTests.xctest;
+			remoteRef = 44514CB423ED6FC0002794D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		44514CB723ED6FC0002794D2 /* TwitterCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TwitterCore.framework;
+			remoteRef = 44514CB623ED6FC0002794D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		9D40087F1B1D033C0091E4D3 /* libTwitterCore.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -3412,10 +3494,20 @@
 			target = A97654E418E0B29B00E25169 /* TwitterKit-static */;
 			targetProxy = 3703BEAE1A37E51B00AA639A /* PBXContainerItemProxy */;
 		};
-		9D40088C1B1D059D0091E4D3 /* PBXTargetDependency */ = {
+		44514CB923ED70EB002794D2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "TwitterCore-static";
-			targetProxy = 9D40088B1B1D059D0091E4D3 /* PBXContainerItemProxy */;
+			targetProxy = 44514CB823ED70EB002794D2 /* PBXContainerItemProxy */;
+		};
+		44514CBC23ED712B002794D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "TwitterCore-static";
+			targetProxy = 44514CBB23ED712B002794D2 /* PBXContainerItemProxy */;
+		};
+		44514CBE23ED715B002794D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TwitterCore;
+			targetProxy = 44514CBD23ED715B002794D2 /* PBXContainerItemProxy */;
 		};
 		BFE8397F1ADF23700035CBA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3504,6 +3596,7 @@
 					"$(TARGET_BUILD_DIR)/Headers",
 					"$(BUILT_PRODUCTS_DIR)/Headers",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
@@ -3533,6 +3626,7 @@
 					"$(TARGET_BUILD_DIR)/Headers",
 					"$(BUILT_PRODUCTS_DIR)/Headers",
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
@@ -3547,6 +3641,7 @@
 					"$(PROJECT_DIR)",
 				);
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 			};
 			name = Debug;
 		};
@@ -3560,6 +3655,7 @@
 					"$(PROJECT_DIR)",
 				);
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 			};
 			name = Release;
 		};
@@ -3568,8 +3664,10 @@
 			baseConfigurationReference = 37510DA81D3EC1080048227C /* TwitterKit.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				DEVELOPMENT_TEAM = BRVHSCM57F;
 				ENABLE_BITCODE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3577,6 +3675,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.twitter.sdk.ios;
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 			};
 			name = Debug;
 		};
@@ -3585,8 +3684,10 @@
 			baseConfigurationReference = 37510DA81D3EC1080048227C /* TwitterKit.xcconfig */;
 			buildSettings = {
 				BITCODE_GENERATION_MODE = bitcode;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				DEVELOPMENT_TEAM = BRVHSCM57F;
 				ENABLE_BITCODE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -3594,6 +3695,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.twitter.sdk.ios;
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 			};
 			name = Release;
 		};

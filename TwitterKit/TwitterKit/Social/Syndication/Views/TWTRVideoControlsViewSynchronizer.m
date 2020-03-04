@@ -41,7 +41,7 @@
     self = [super init];
     if (self) {
         _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkDidFire:)];
-        _displayLink.frameInterval = 20;
+        _displayLink.preferredFramesPerSecond = 20;
         [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     }
     return self;

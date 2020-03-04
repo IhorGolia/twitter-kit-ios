@@ -443,7 +443,7 @@
 		9D30C5AB1ACE5EBC00D0B1FA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		9D30C5CC1ACE60E200D0B1FA /* TWTRIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWTRIdentifier.h; sourceTree = "<group>"; };
 		9D30C5CD1ACE60E200D0B1FA /* TWTRIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWTRIdentifier.m; sourceTree = "<group>"; };
-		9D348B411AAFE73B007837FB /* TwitterCore-ios-module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "TwitterCore-ios-module.modulemap"; sourceTree = "<group>"; };
+		9D348B411AAFE73B007837FB /* TwitterCore-mac-module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "TwitterCore-mac-module.modulemap"; sourceTree = "<group>"; };
 		9D3E7CD71B1A35260042B1CC /* TWTRAppAuthProvider_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWTRAppAuthProvider_Private.h; sourceTree = "<group>"; };
 		9D4545431AB0D3C800730817 /* TwitterCore-module.private.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = "TwitterCore-module.private.modulemap"; sourceTree = "<group>"; };
 		9D4545471AB23B6200730817 /* TwitterCore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TwitterCore-Info.plist"; sourceTree = "<group>"; };
@@ -834,7 +834,7 @@
 				AAEA30CF216FBC430027E9D3 /* OCMock.framework */,
 				24AC143D1BE7B174000029B5 /* Config */,
 				9D4545431AB0D3C800730817 /* TwitterCore-module.private.modulemap */,
-				9D348B411AAFE73B007837FB /* TwitterCore-ios-module.modulemap */,
+				9D348B411AAFE73B007837FB /* TwitterCore-mac-module.modulemap */,
 				9DC3DF161C10B9C900C51A38 /* TwitterCore-tvos-module.modulemap */,
 				9D4545471AB23B6200730817 /* TwitterCore-Info.plist */,
 				9D5A92231AAA89730039EFCC /* TwitterCore */,
@@ -1364,9 +1364,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D5A92591AAA8D600039EFCC /* Build configuration list for PBXNativeTarget "TwitterCore" */;
 			buildPhases = (
+				9D5A92431AAA8D600039EFCC /* Headers */,
 				9D5A92411AAA8D600039EFCC /* Sources */,
 				9D5A92421AAA8D600039EFCC /* Frameworks */,
-				9D5A92431AAA8D600039EFCC /* Headers */,
 				9D5A92441AAA8D600039EFCC /* Resources */,
 			);
 			buildRules = (
@@ -1405,6 +1405,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				ja,
 				ko,
@@ -1634,7 +1635,11 @@
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[sdk=macosx*]" = "";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 			};
 			name = Debug;
 		};
@@ -1682,6 +1687,10 @@
 				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"OTHER_LDFLAGS[sdk=macosx*]" = "";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1699,6 +1708,7 @@
 					"$(TARGET_BUILD_DIR)/Headers/",
 					"$(TARGET_BUILD_DIR)/PrivateHeaders/",
 				);
+				"OTHER_LDFLAGS[sdk=macosx*]" = "$(inherited)";
 			};
 			name = Debug;
 		};
@@ -1715,6 +1725,7 @@
 					"$(TARGET_BUILD_DIR)/Headers/",
 					"$(TARGET_BUILD_DIR)/PrivateHeaders/",
 				);
+				"OTHER_LDFLAGS[sdk=macosx*]" = "$(inherited)";
 			};
 			name = Release;
 		};

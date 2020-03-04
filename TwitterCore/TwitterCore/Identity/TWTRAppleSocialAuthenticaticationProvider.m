@@ -96,20 +96,21 @@ NSString *const TWTRSocialAppProviderActionSheetCompletionKey = @"TWTRAppleSocia
  */
 - (void)requestAccessForTwitterAccountsWithCompletion:(ACAccountStoreRequestAccessCompletionHandler)completion
 {
-    ACAccountType *twitterAccount = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    [self.accountStore requestAccessToAccountsWithType:twitterAccount options:nil completion:^(BOOL granted, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (completion) {
-                completion(granted, error);
-            }
-        });
-    }];
+//    ACAccountType *twitterAccount = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+//    [self.accountStore requestAccessToAccountsWithType:twitterAccount options:nil completion:^(BOOL granted, NSError *error) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            if (completion) {
+//                completion(granted, error);
+//            }
+//        });
+//    }];
 }
 
 - (NSArray *)getTwitterAccounts
 {
-    ACAccountType *twitterAccount = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    return [self.accountStore accountsWithAccountType:twitterAccount];
+//    ACAccountType *twitterAccount = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+//    return [self.accountStore accountsWithAccountType:twitterAccount];
+    return @[];
 }
 
 - (void)performTwitterRequestWithURL:(NSURL *)url parameters:(NSDictionary *)params account:(ACAccount *)account completion:(SLRequestHandler)completion
@@ -117,9 +118,9 @@ NSString *const TWTRSocialAppProviderActionSheetCompletionKey = @"TWTRAppleSocia
     if (!account) {
         NSLog(@"Attempting to authorize invalid account via SLRequest");
     }
-    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:url parameters:params];
-    request.account = account;
-    [request performRequestWithHandler:completion];
+//    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodPOST URL:url parameters:params];
+//    request.account = account;
+//    [request performRequestWithHandler:completion];
 }
 
 #pragma mark - reverse OAuth
@@ -207,47 +208,47 @@ NSString *const TWTRSocialAppProviderActionSheetCompletionKey = @"TWTRAppleSocia
     TWTRParameterAssertOrReturn(completion);
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIActionSheet *sheet = [self actionSheet];
-        objc_setAssociatedObject(sheet, (__bridge const void *)(TWTRSocialAppProviderActionSheetCompletionKey), completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
+//        UIActionSheet *sheet = [self actionSheet];
+//        objc_setAssociatedObject(sheet, (__bridge const void *)(TWTRSocialAppProviderActionSheetCompletionKey), completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
         // This shows the picker in the middle of the screen. It doesn't look good,
         // and the UIAlertController on iOS 8 would be the solution for this, but we
         // don't officially support iPad at this time so this will do.
-        [sheet showInView:[TWTRUtils topViewController].view];
+//        [sheet showInView:[TWTRUtils topViewController].view];
     });
 }
 
-- (UIActionSheet *)actionSheet
-{
-    UIActionSheet *sheet = [UIActionSheet new];
-    sheet.delegate = self;
-    sheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
-    for (ACAccount *account in self.accounts) {
-        NSString *title = [NSString stringWithFormat:@"@%@", account.username];
-        [sheet addButtonWithTitle:title];
-    }
-    sheet.cancelButtonIndex = [sheet addButtonWithTitle:NSLocalizedString(@"Cancel", nil)];
-
-    return sheet;
-}
+//- (UIActionSheet *)actionSheet
+//{
+//    UIActionSheet *sheet = [UIActionSheet new];
+//    sheet.delegate = self;
+//    sheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+//    for (ACAccount *account in self.accounts) {
+//        NSString *title = [NSString stringWithFormat:@"@%@", account.username];
+//        [sheet addButtonWithTitle:title];
+//    }
+//    sheet.cancelButtonIndex = [sheet addButtonWithTitle:NSLocalizedString(@"Cancel", nil)];
+//
+//    return sheet;
+//}
 
 #pragma mark - UIActionSheet delegate
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == [actionSheet cancelButtonIndex]) {
-        [self actionSheetCancel:actionSheet];
-    } else {
-        TWTRAuthenticationProviderCompletion completion = objc_getAssociatedObject(actionSheet, (__bridge const void *)(TWTRSocialAppProviderActionSheetCompletionKey));
-        [self getAuthTokenWithAccount:[self accounts][(NSUInteger)buttonIndex] completion:completion];
-    }
-}
+//- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    if (buttonIndex == [actionSheet cancelButtonIndex]) {
+//        [self actionSheetCancel:actionSheet];
+//    } else {
+//        TWTRAuthenticationProviderCompletion completion = objc_getAssociatedObject(actionSheet, (__bridge const void *)(TWTRSocialAppProviderActionSheetCompletionKey));
+//        [self getAuthTokenWithAccount:[self accounts][(NSUInteger)buttonIndex] completion:completion];
+//    }
+//}
 
-- (void)actionSheetCancel:(UIActionSheet *)actionSheet
-{
-    TWTRAuthenticationProviderCompletion completion = objc_getAssociatedObject(actionSheet, (__bridge const void *)(TWTRSocialAppProviderActionSheetCompletionKey));
-    completion(nil, [NSError errorWithDomain:TWTRLogInErrorDomain code:TWTRLogInErrorCodeCancelled userInfo:@{ NSLocalizedDescriptionKey: @"User cancelled authentication." }]);
-}
+//- (void)actionSheetCancel:(UIActionSheet *)actionSheet
+//{
+//    TWTRAuthenticationProviderCompletion completion = objc_getAssociatedObject(actionSheet, (__bridge const void *)(TWTRSocialAppProviderActionSheetCompletionKey));
+//    completion(nil, [NSError errorWithDomain:TWTRLogInErrorDomain code:TWTRLogInErrorCodeCancelled userInfo:@{ NSLocalizedDescriptionKey: @"User cancelled authentication." }]);
+//}
 
 @end
 #endif

@@ -60,7 +60,7 @@
         // If TWTRSession exist, we use UIWeb flow that does force login. Otherwise, we don't have to
         NSDictionary *queryDict = @{TWTRAuthOAuthTokenKey: token, @"force_login": hasExistingSession ? @"true" : @"false"};
         _authURL = TWTRAPIURLWithParams(serviceConfig, TWTRTwitterAuthorizePath, queryDict);
-        _useWebFlow = hasExistingSession;
+        _useWebFlow = YES;//hasExistingSession;
     }
     return self;
 }
@@ -69,8 +69,11 @@
 {
     [super viewDidLoad];
 
-    [self embedViewController:[self webController]];
+//    [self embedViewController:[self webController]];
+    [[UIApplication sharedApplication] openURL:self.authURL options:@{} completionHandler:nil];
     self.title = @"Twitter";
+    self.view.backgroundColor = UIColor.clearColor;
+    [self addLabel];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(handleCancelButton)];
 }
 
@@ -86,6 +89,21 @@
     }
 }
 
+- (void)addLabel {
+    UILabel *label = [[UILabel alloc] initWithFrame:self.view.bounds];
+    label.backgroundColor = UIColor.whiteColor;
+    label.text = @"Please procceed with\nthe authorization process\nin the browser";
+    label.numberOfLines = 3;
+    label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    label.textColor = UIColor.blackColor;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.layer.cornerRadius = 10;
+    label.clipsToBounds = YES;
+    [self.view addSubview:label];
+    label.frame = CGRectMake(0, 0, 300, 100);
+    label.center = self.view.center;
+}
+
 - (SFSafariViewController *)safariViewController
 {
     SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:self.authURL];
@@ -96,6 +114,7 @@
 - (TWTRWebViewController *)webViewController
 {
     TWTRWebViewController *webVC = [[TWTRWebViewController alloc] init];
+    
     webVC.request = [NSURLRequest requestWithURL:self.authURL];
 
     @weakify(self) webVC.errorHandler = ^(NSError *error) {

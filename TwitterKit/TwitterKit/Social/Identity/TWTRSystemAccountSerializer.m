@@ -36,14 +36,14 @@
         return;
     }
 
-    ACAccountCredential *credential = [[ACAccountCredential alloc] initWithOAuthToken:token tokenSecret:secret];
-    ACAccountStore *store = [[ACAccountStore alloc] init];
-    ACAccountType *type = [store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    ACAccount *newSystemAccount = [[ACAccount alloc] initWithAccountType:type];
-    newSystemAccount.credential = credential;
-    newSystemAccount.username = username;
+//    ACAccountCredential *credential = [[ACAccountCredential alloc] initWithOAuthToken:token tokenSecret:secret];
+//    ACAccountStore *store = [[ACAccountStore alloc] init];
+//    ACAccountType *type = [store accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+//    ACAccount *newSystemAccount = [[ACAccount alloc] initWithAccountType:type];
+//    newSystemAccount.credential = credential;
+//    newSystemAccount.username = username;
 
-    [store saveAccount:newSystemAccount withCompletionHandler:completion];
+//    [store saveAccount:newSystemAccount withCompletionHandler:completion];
 }
 
 @end

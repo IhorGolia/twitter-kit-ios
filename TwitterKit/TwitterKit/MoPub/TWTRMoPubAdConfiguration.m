@@ -16,10 +16,10 @@
  */
 
 #import "TWTRMoPubAdConfiguration.h"
-#import <MoPub/MPNativeAdRendererConfiguration.h>
-#import <MoPub/MPNativeAdRequestTargeting.h>
-#import <MoPub/MPStaticNativeAdRenderer.h>
-#import <MoPub/MPStaticNativeAdRendererSettings.h>
+//#import <MoPub/MPNativeAdRendererConfiguration.h>
+//#import <MoPub/MPNativeAdRequestTargeting.h>
+//#import <MoPub/MPStaticNativeAdRenderer.h>
+//#import <MoPub/MPStaticNativeAdRendererSettings.h>
 #import <TwitterCore/TWTRUtils.h>
 #import "TWTRMoPubAdConfiguration_Private.h"
 #import "TWTRMoPubNativeAdContainerView.h"
@@ -45,7 +45,7 @@ static NSString *const TWTRMoPubAttributionKeyword = @"src:twitterkit";
 /**
  *  Correspondes to `MPNativeViewDynamicDimension`.
  */
-static const CGFloat TWTRMoPubNNativeViewDynamicDimension = -1.0;
+//static const CGFloat TWTRMoPubNNativeViewDynamicDimension = -1.0;
 
 // From MoPub KFT
 @implementation TWTRMoPubAdConfiguration
@@ -80,15 +80,15 @@ static const CGFloat TWTRMoPubNNativeViewDynamicDimension = -1.0;
  */
 - (void)setupMoPubClassesIfPossible
 {
-    self->_adRequestTargeting = [[TWTRNativeAdRequestTargetingClass alloc] init];
-    self.adRequestTargeting.keywords = [self keywordsWithAttribution];
-    self.adRequestTargeting.desiredAssets = [[NSSet alloc] initWithArray:@[TWTRMoPubAdIconImageKey, TWTRMoPubAdMainImageKey, TWTRMoPubAdCTATextKey, TWTRMoPubAdTextKey, TWTRMoPubAdTitleKey]];
-
-    self->_adRendererSettings = [[TWTRStaticNativeAdRendererSettings alloc] init];
-    self.adRendererSettings.renderingViewClass = [TWTRMoPubNativeAdContainerView class];
-    self.adRendererSettings.viewSizeHandler = ^CGSize(CGFloat maxWidth) {
-        return CGSizeMake(maxWidth, TWTRMoPubNNativeViewDynamicDimension);
-    };
+//    self->_adRequestTargeting = [[TWTRNativeAdRequestTargetingClass alloc] init];
+//    self.adRequestTargeting.keywords = [self keywordsWithAttribution];
+//    self.adRequestTargeting.desiredAssets = [[NSSet alloc] initWithArray:@[TWTRMoPubAdIconImageKey, TWTRMoPubAdMainImageKey, TWTRMoPubAdCTATextKey, TWTRMoPubAdTextKey, TWTRMoPubAdTitleKey]];
+//
+//    self->_adRendererSettings = [[TWTRStaticNativeAdRendererSettings alloc] init];
+//    self.adRendererSettings.renderingViewClass = [TWTRMoPubNativeAdContainerView class];
+//    self.adRendererSettings.viewSizeHandler = ^CGSize(CGFloat maxWidth) {
+//        return CGSizeMake(maxWidth, TWTRMoPubNNativeViewDynamicDimension);
+//    };
 }
 
 #pragma mark - Private Methods
@@ -96,7 +96,7 @@ static const CGFloat TWTRMoPubNNativeViewDynamicDimension = -1.0;
 - (MPNativeAdRendererConfiguration *)adRendererConfiguration
 {
     if (self.adRendererSettings) {
-        return [TWTRStaticNativeAdRenderer rendererConfigurationWithRendererSettings:self.adRendererSettings];
+        return nil;//[TWTRStaticNativeAdRenderer rendererConfigurationWithRendererSettings:self.adRendererSettings];
     } else {
         return nil;
     }

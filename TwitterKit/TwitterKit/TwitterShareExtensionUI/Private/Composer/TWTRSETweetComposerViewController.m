@@ -217,7 +217,7 @@ static void *TSETweetTextKVOCOntext = &TSETweetTextKVOCOntext;
         _tweetBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[TSELocalized localizedString:TSEUI_LOCALIZABLE_SENT_TWEET_ACTION_LABEL] style:UIBarButtonItemStyleDone target:self action:@selector(_tseui_tweetButtonTapped)];
         self.navigationItem.rightBarButtonItem = _tweetBarButtonItem;
 
-        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
         [spinner startAnimating];
         _spinnerBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner];
 

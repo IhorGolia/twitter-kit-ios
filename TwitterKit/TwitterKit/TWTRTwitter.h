@@ -20,8 +20,6 @@
 #import <UIKit/UIKit.h>
 #import "TWTRAPIClient.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 #ifndef Twitter
 
 /**
@@ -29,8 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  map the old `Twitter` to the new `TWTRTwitter` using a macro.
  */
 #define Twitter TWTRTwitter
-
-#endif
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The central class of the Twitter Kit.
@@ -124,3 +121,4 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+#endif

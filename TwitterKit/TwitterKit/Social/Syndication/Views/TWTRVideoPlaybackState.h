@@ -15,8 +15,13 @@
  *
  */
 
+#ifndef TWTRVideoPlaybackState_H
+#define TWTRVideoPlaybackState_H
+
 typedef NS_ENUM(NSInteger, TWTRVideoPlaybackState) {
     TWTRVideoPlaybackStatePaused,
     TWTRVideoPlaybackStatePlaying,
     TWTRVideoPlaybackStateCompleted,
 };
+
+#endif

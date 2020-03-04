@@ -175,10 +175,10 @@ static TWTRTwitter *sharedTwitter;
  */
 - (void)ensureResourcesBundleExists
 {
-    const BOOL resourcesBundleExists = ([TWTRResourcesUtil bundleWithBundlePath:TWTRResourceBundleLocation] != nil);
-    if (!resourcesBundleExists) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%@ resources file not found. Please re-install TwitterKit with CocoaPods to ensure it is properly set-up.", TWTRResourceBundleLocation.lastPathComponent] userInfo:nil];
-    }
+//    const BOOL resourcesBundleExists = ([TWTRResourcesUtil bundleWithBundlePath:TWTRResourceBundleLocation] != nil);
+//    if (!resourcesBundleExists) {
+//        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:[NSString stringWithFormat:@"%@ resources file not found. Please re-install TwitterKit with CocoaPods to ensure it is properly set-up.", TWTRResourceBundleLocation.lastPathComponent] userInfo:nil];
+//    }
 }
 
 #pragma mark - Public
@@ -323,22 +323,22 @@ static TWTRTwitter *sharedTwitter;
         // Throws exception if the app does not have a valid scheme
         [NSException raise:TWTRInvalidInitializationException format:@"Attempt made to Log in or Like a Tweet without a valid Twitter Kit URL Scheme set up in the app settings. Please see https://dev.twitter.com/twitterkit/ios/installation for more info."];
     } else {
-        __weak typeof(viewController) weakViewController = viewController;
-        self.mobileSSO = [[TWTRMobileSSO alloc] initWithAuthConfig:self.sessionStore.authConfig];
-        [self.mobileSSO attemptAppLoginWithCompletion:^(TWTRSession *session, NSError *error) {
-            if (session) {
-                completion(session, error);
-            } else {
-                if (error.domain == TWTRLogInErrorDomain && error.code == TWTRLogInErrorCodeCancelled) {
-                    // The user tapped "Cancel"
-                    completion(session, error);
-                } else {
-                    typeof(weakViewController) strongViewController = weakViewController;
-                    // There wasn't a Twitter app
-                    [self performWebBasedLogin:strongViewController completion:completion];
-                }
-            }
-        }];
+//        __weak typeof(viewController) weakViewController = viewController;
+//        self.mobileSSO = [[TWTRMobileSSO alloc] initWithAuthConfig:self.sessionStore.authConfig];
+//        [self.mobileSSO attemptAppLoginWithCompletion:^(TWTRSession *session, NSError *error) {
+//            if (session) {
+//                completion(session, error);
+//            } else {
+//                if (error.domain == TWTRLogInErrorDomain && error.code == TWTRLogInErrorCodeCancelled) {
+//                    // The user tapped "Cancel"
+//                    completion(session, error);
+//                } else {
+//                    typeof(weakViewController) strongViewController = weakViewController;
+//                    // There wasn't a Twitter app
+                    [self performWebBasedLogin:viewController completion:completion];
+//                }
+//            }
+//        }];
     }
 }
 
@@ -349,14 +349,19 @@ static TWTRTwitter *sharedTwitter;
     if (!viewController) {
         viewController = [TWTRUtils topViewController];
     }
-
+    NSLog(@"555555555");
     self.webAuthenticationFlow = [[TWTRWebAuthenticationFlow alloc] initWithSessionStore:self.sessionStore];
 
     __weak typeof(viewController) weakViewController = viewController;
     [self.webAuthenticationFlow beginAuthenticationFlow:^(UIViewController *controller) {
+        controller.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        controller.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         __strong typeof(weakViewController) strongViewController = weakViewController;
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+        navigationController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [strongViewController presentViewController:navigationController animated:YES completion:nil];
+        
     }
         completion:^(TWTRSession *session, NSError *error) {
             /**
@@ -379,24 +384,24 @@ static TWTRTwitter *sharedTwitter;
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary *)options
 {
-    NSString *sourceApplication = options[UIApplicationOpenURLOptionsSourceApplicationKey];
-    BOOL isSSOBundle = [self.mobileSSO isSSOWithSourceApplication:sourceApplication];
-    BOOL isWeb = [self.mobileSSO isWebWithSourceApplication:sourceApplication];
-
-    if (isSSOBundle) {
-        [self.mobileSSO processRedirectURL:url];
-    } else if (isWeb) {
-        BOOL isTokenValid = [self.mobileSSO verifyOauthTokenResponsefromURL:url];
-        if (isTokenValid) {
-            // If it wasn't a Mobile SSO redirect, try to handle as
-            // SFSafariViewController redirect
+//    NSString *sourceApplication = options[UIApplicationOpenURLOptionsSourceApplicationKey];
+//    BOOL isSSOBundle = [self.mobileSSO isSSOWithSourceApplication:sourceApplication];
+//    BOOL isWeb = [self.mobileSSO isWebWithSourceApplication:sourceApplication];
+//
+//    if (isSSOBundle) {
+//        [self.mobileSSO processRedirectURL:url];
+//    } else if (isWeb) {
+//        BOOL isTokenValid = [self.mobileSSO verifyOauthTokenResponsefromURL:url];
+//        if (isTokenValid) {
+//            // If it wasn't a Mobile SSO redirect, try to handle as
+//            // SFSafariViewController redirect
             return [self.webAuthenticationFlow resumeAuthenticationWithRedirectURL:url];
-        }
-    } else {
-        [self.mobileSSO triggerInvalidSourceError];
-    }
-
-    return NO;
+//        }
+//    } else {
+//        [self.mobileSSO triggerInvalidSourceError];
+//    }
+//
+//    return NO;
 }
 
 #pragma mark - TwitterCore

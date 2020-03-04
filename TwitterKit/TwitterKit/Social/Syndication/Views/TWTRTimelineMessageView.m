@@ -52,7 +52,7 @@
     self.messageLabel.font = [TWTRFontUtil largeSizeSystemFont];
     self.messageLabel.textColor = [TWTRColorUtil contrastingTextColorFromBackgroundColor:self.backgroundColor];
 
-    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
     self.activityIndicator.transform = CGAffineTransformMakeScale(1.3, 1.3);
 
     [self setupConstraints];

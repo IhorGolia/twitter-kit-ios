@@ -16,7 +16,7 @@
  */
 
 #import "TWTRMoPubVersionChecker.h"
-#import <MoPub/MoPub.h>
+//#import <MoPub/MoPub.h>
 #import <math.h>
 
 static NSInteger IntegerVersionFromStringVersion(NSString *version)
@@ -51,7 +51,7 @@ NSUInteger TWTRMoPubMinimumRequiredVersion = 40600;  // 4.6.0
     if (mopubClass) {
         // If MoPub is new enough to have the version instance method
         // implemented on [MoPub sharedInstance]
-        id sharedMoPub = [mopubClass performSelector:@selector(sharedInstance)];
+        id sharedMoPub = nil;//[mopubClass performSelector:@selector(sharedInstance)];
         if ([sharedMoPub respondsToSelector:@selector(version)]) {
             NSString *mopubVersionString = [sharedMoPub performSelector:@selector(version)];
             return IntegerVersionFromStringVersion(mopubVersionString);

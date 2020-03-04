@@ -14,7 +14,8 @@
  * limitations under the License.
  *
  */
-
+#ifndef TWTRComposerViewController_h
+#define TWTRComposerViewController_h
 #import <UIKit/UIKit.h>
 @class TWTRTweet;
 @protocol TWTRComposerViewControllerDelegate;
@@ -101,3 +102,4 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+#endif

@@ -55,7 +55,9 @@
 
     } else {
         if ([[UIApplication sharedApplication] canOpenURL:twitterAuthURL]) {
-            [[UIApplication sharedApplication] openURL:twitterAuthURL];
+            [[UIApplication sharedApplication] openURL:twitterAuthURL options:@{} completionHandler:^(BOOL success) {
+                
+            }];
         } else {
             completion(nil, [TWTRErrors noTwitterAppError]);
         }

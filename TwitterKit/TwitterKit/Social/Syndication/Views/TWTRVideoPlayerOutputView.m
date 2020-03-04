@@ -135,7 +135,7 @@ NSString *videoGravityForAspectRatio(TWTRVideoPlayerAspectRatio aspectRatio)
     _previewImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:_previewImageView];
 
-    _loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
     _loadingView.translatesAutoresizingMaskIntoConstraints = NO;
     [_loadingView startAnimating];
     [self addSubview:_loadingView];
@@ -351,7 +351,9 @@ NSString *videoGravityForAspectRatio(TWTRVideoPlayerAspectRatio aspectRatio)
     CMTimeScale timeScale = MAX(self.playerItem.currentTime.timescale, minimumTimeScale);
     CMTime time = CMTimeMakeWithSeconds(position, timeScale);
 
-    [self.playerItem seekToTime:time];
+    [self.playerItem seekToTime:time completionHandler:^(BOOL finished) {
+        
+    }];
 }
 
 - (NSTimeInterval)elapsedTime

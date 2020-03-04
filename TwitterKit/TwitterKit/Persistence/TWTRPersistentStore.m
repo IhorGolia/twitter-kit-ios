@@ -99,7 +99,7 @@
             return NO;
         }
 
-        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:value];
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:value requiringSecureCoding:NO error:nil];
         if (![self isValidData:data]) {
             NSLog(@"[%@] Not valid data", [self class]);
             return NO;
@@ -150,11 +150,12 @@
         }
 
         id<NSCoding> archivedObject = nil;
-
+        NSData *objData = [NSData dataWithContentsOfFile:dataPath];
         if ([TWTROSVersionInfo majorVersion] >= 9) {
             // iOS 9 will just return nil when trying to
             // unarchive an object from a corrupt file
-            archivedObject = [NSKeyedUnarchiver unarchiveObjectWithFile:dataPath];
+            
+            archivedObject = [NSKeyedUnarchiver unarchivedObjectOfClass:NSClassFromString(@"NSObject") fromData:objData error:nil];
             if (!archivedObject) {
                 [self cleanCorruptItemAtPath:dataPath withIndex:idx usingFileManager:fileManager];
                 return nil;
@@ -163,7 +164,7 @@
             // iOS 8 and below will throw an exception when
             // trying to unarchive an object from a corrupt file
             @try {
-                archivedObject = [NSKeyedUnarchiver unarchiveObjectWithFile:dataPath];
+                archivedObject = [NSKeyedUnarchiver unarchivedObjectOfClass:NSClassFromString(@"NSObject") fromData:objData error:nil];
             } @catch (NSException *exception) {
                 [self cleanCorruptItemAtPath:dataPath withIndex:idx usingFileManager:fileManager];
 

@@ -78,7 +78,7 @@ static const NSTimeInterval kAutoCompletionTypingThrottleInterval = 0.3;
         _cursor = (NSRange){.location = NSNotFound, .length = 0};
         _autoCompletionState = TWTRSEAutoCompletionStateWaiting;
 
-        self.automaticallyAdjustsScrollViewInsets = NO;
+//        self.automaticallyAdjustsScrollViewInsets = NO;
     }
 
     return self;

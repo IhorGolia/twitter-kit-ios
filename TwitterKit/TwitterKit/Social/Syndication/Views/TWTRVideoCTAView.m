@@ -93,7 +93,9 @@ static const CGFloat TWTRVideoCTABorderViewCornerRadius = 16.0;
         [self.delegate videoCTAView:self willDeeplinkToTargetURL:self.deeplinkConfiguration.targetURL];
     }
 
-    [[UIApplication sharedApplication] openURL:self.deeplinkConfiguration.targetURL];
+    [[UIApplication sharedApplication] openURL:self.deeplinkConfiguration.targetURL options:@{} completionHandler:^(BOOL success) {
+        
+    }];
 
     [self fireMetricsCallForMetricsURL:self.deeplinkConfiguration.metricsURL];
 }

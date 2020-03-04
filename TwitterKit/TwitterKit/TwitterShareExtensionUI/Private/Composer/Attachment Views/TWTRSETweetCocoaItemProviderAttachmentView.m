@@ -50,7 +50,7 @@ static const CGFloat kSpinnerPadding = 15.0;
 
     if ((self = [super init])) {
         _attachment = attachment;
-        _loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _loadingIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
         if (_attachment.cardPreviewProvider) {
             _itemProviderQueue = dispatch_queue_create("com.twitter.TSETweetCocoaItemProviderAttachmentViewCardPreviewQueue", DISPATCH_QUEUE_SERIAL);
         }
